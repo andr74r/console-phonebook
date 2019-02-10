@@ -59,7 +59,6 @@
     <Compile Include="Concrete\PhoneRepository.cs" />
     <Compile Include="Concrete\DefaultSorter.cs" />
     <Compile Include="Concrete\PhoneValidator.cs" />
-    <Compile Include="Consts\Commands.cs" />
     <Compile Include="Entity\Phone.cs" />
     <Compile Include="Helpers\ReflectionHelper.cs" />
     <Compile Include="Infrastructure\AutofacConfig.cs" />

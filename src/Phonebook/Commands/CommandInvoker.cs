@@ -1,6 +1,4 @@
-﻿using Autofac;
-using Phonebook.Attributes;
-using Phonebook.Consts;
+﻿using Phonebook.Attributes;
 using Phonebook.Helpers;
 using System;
 using System.Collections.Generic;
