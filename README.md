@@ -8,3 +8,8 @@ To run app:
   - add - format 'add {name} {phone}'
   - list
   - help
+
+To add new command need to do the following:
+ - Create implementation of ICommand;
+ - Add attribute CommandAttribute to the implementation;
+ - Register command using AutofacConfig.
