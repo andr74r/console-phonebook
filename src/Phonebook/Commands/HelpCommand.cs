@@ -1,4 +1,5 @@
-﻿using Phonebook.Attributes;
+﻿using Phonebook.Abstract;
+using Phonebook.Attributes;
 using Phonebook.Helpers;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,16 @@ namespace Phonebook.Commands
     [Command(Name = "help")]
     public class HelpCommand : ICommand
     {
+        private readonly IOutputInputManager _ioManager;
+
+        public HelpCommand(IOutputInputManager ioManager)
+        {
+            _ioManager = ioManager;
+        }
+
         public void Execute(List<string> args)
         {
-            Console.WriteLine("Available commands:");
+            _ioManager.WriteMessage("Available commands:");
 
             var objs = ReflectionHelper.GetAttributesOfImplementations<ICommand, CommandAttribute>();
 
@@ -18,7 +26,7 @@ namespace Phonebook.Commands
             {
                 var attr = obj as CommandAttribute;
                 var message = $"'{attr.Name}' {(!string.IsNullOrWhiteSpace(attr.Format) ? $"- format: '{attr.Format}'" : string.Empty)}";
-                Console.WriteLine(message);
+                _ioManager.WriteMessage(message);
             }
         }
     }

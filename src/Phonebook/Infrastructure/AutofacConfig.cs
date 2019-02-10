@@ -16,6 +16,7 @@ namespace Phonebook.Infrastructure
             builder.RegisterType<DefaultSorter<Phone>>().As<ISorter<Phone>>();
             builder.RegisterType<PhoneValidator>().As<IPhoneValidator>();
             builder.RegisterType<PhoneManager>().As<IPhoneManager>();
+            builder.RegisterType<ConsoleManager>().As<IOutputInputManager>();
 
             builder.RegisterType<CommandInvoker>().As<CommandInvoker>();
             builder.RegisterType<AddCommand>().As<AddCommand>();

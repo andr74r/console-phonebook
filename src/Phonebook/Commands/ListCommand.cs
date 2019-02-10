@@ -9,10 +9,13 @@ namespace Phonebook.Commands
     public class ListCommand : ICommand
     {
         private readonly IPhoneManager _phoneManager;
+        private readonly IOutputInputManager _ioManager;
 
-        public ListCommand(IPhoneManager phoneManager)
+        public ListCommand(IPhoneManager phoneManager,
+            IOutputInputManager ioManager)
         {
             _phoneManager = phoneManager;
+            _ioManager = ioManager;
         }
 
         public void Execute(List<string> args)
@@ -20,7 +23,7 @@ namespace Phonebook.Commands
             var list = _phoneManager.GetPhoneList();
             foreach (var elem in list)
             {
-                Console.WriteLine($"{elem.OwnerName} : {elem.Number};");
+                _ioManager.WriteMessage($"{elem.OwnerName} : {elem.Number};");
             }
         }
     }

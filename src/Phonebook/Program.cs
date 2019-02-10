@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Autofac;
+using Phonebook.Abstract;
 using Phonebook.Commands;
 using Phonebook.Infrastructure;
 
@@ -15,13 +16,14 @@ namespace Phonebook
             using (var scope = container.BeginLifetimeScope())
             {
                 var commandInvoker = scope.Resolve<CommandInvoker>();
+                var ioManager = scope.Resolve<IOutputInputManager>();
 
                 Func<Type, object> createInstance = (type) => scope.Resolve(type);
 
                 while (true)
                 {
-                    Console.Write("Enter the command:");
-                    var line = Console.ReadLine();
+                    ioManager.WriteMessage("Enter the command:", false);
+                    var line = ioManager.ReadLine();
 
                     if (line?.Length > 0)
                     {

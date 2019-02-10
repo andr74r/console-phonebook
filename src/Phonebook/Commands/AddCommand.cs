@@ -10,10 +10,13 @@ namespace Phonebook.Commands
     public class AddCommand : ICommand
     {
         private readonly IPhoneManager _phoneManager;
+        private readonly IOutputInputManager _ioManager;
 
-        public AddCommand(IPhoneManager phoneManager)
+        public AddCommand(IPhoneManager phoneManager,
+            IOutputInputManager ioManager)
         {
             _phoneManager = phoneManager;
+            _ioManager = ioManager;
         }
 
         public void Execute(List<string> args)
@@ -26,13 +29,13 @@ namespace Phonebook.Commands
                 bool isValid = _phoneManager.AddPhone(phone);
 
                 if (isValid)
-                    Console.WriteLine("Phone was added.");
+                    _ioManager.WriteMessage("Phone was added.");
                 else
-                    Console.WriteLine("Phone is invalid");
+                    _ioManager.WriteMessage("Phone is invalid");
             }
             else
             {
-                Console.WriteLine("Command 'add' has the following format: 'add {name} {phone}'");
+                _ioManager.WriteMessage("Command 'add' has the following format: 'add {name} {phone}'");
             }
         }
 

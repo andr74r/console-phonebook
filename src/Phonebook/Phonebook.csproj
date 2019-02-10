@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IOutputInputManager.cs" />
     <Compile Include="Abstract\IPhoneManager.cs" />
     <Compile Include="Abstract\IPhoneRepository.cs" />
     <Compile Include="Abstract\IPhoneValidator.cs" />
@@ -55,6 +56,7 @@
     <Compile Include="Commands\HelpCommand.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\ListCommand.cs" />
+    <Compile Include="Concrete\ConsoleManager.cs" />
     <Compile Include="Concrete\PhoneManager.cs" />
     <Compile Include="Concrete\PhoneRepository.cs" />
     <Compile Include="Concrete\DefaultSorter.cs" />
