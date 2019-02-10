@@ -16,6 +16,8 @@ namespace Phonebook
             {
                 var commandInvoker = scope.Resolve<CommandInvoker>();
 
+                Func<Type, object> createInstance = (type) => scope.Resolve(type);
+
                 while (true)
                 {
                     Console.Write("Enter the command:");
@@ -25,7 +27,7 @@ namespace Phonebook
                     {
                         var arguments = line.Split(' ').ToList();
 
-                        commandInvoker.Execute(arguments);
+                        commandInvoker.Execute(arguments, createInstance);
                     }
                 }
             }

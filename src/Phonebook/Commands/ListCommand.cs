@@ -1,9 +1,11 @@
 ﻿using Phonebook.Abstract;
+using Phonebook.Attributes;
 using System;
 using System.Collections.Generic;
 
 namespace Phonebook.Commands
 {
+    [Command(Name = "list")]
     public class ListCommand : ICommand
     {
         private readonly IPhoneManager _phoneManager;

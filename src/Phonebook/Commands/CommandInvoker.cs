@@ -1,5 +1,8 @@
 ﻿using Autofac;
+using Phonebook.Attributes;
 using Phonebook.Consts;
+using Phonebook.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,21 +10,14 @@ namespace Phonebook.Commands
 {
     public class CommandInvoker
     {
-        private readonly ICommand _addCommand;
-        private readonly ICommand _listCommand;
-        private readonly ICommand _helpCommand;
         private readonly ICommand _defaultCommand;
 
-        public CommandInvoker(AddCommand addCommand, ListCommand listCommand,
-            HelpCommand helpCommand, DefaultCommand defaultCommand)
+        public CommandInvoker(DefaultCommand defaultCommand)
         {
-            _addCommand = addCommand;
-            _listCommand = listCommand;
-            _helpCommand = helpCommand;
             _defaultCommand = defaultCommand;
         }
 
-        public void Execute(List<string> args)
+        public void Execute(List<string> args, Func<Type, object> createInstance)
         {
             if (args?.Count > 0)
             {
@@ -29,20 +25,15 @@ namespace Phonebook.Commands
 
                 ICommand commandToExecute = null;
 
-                switch(command)
+                var type = ReflectionHelper.GetImplementationTypeByAttributeProperty<ICommand, CommandAttribute>(nameof(CommandAttribute.Name), command);
+
+                if (type != null)
                 {
-                    case CommandsList.List:
-                        commandToExecute = _listCommand;
-                        break;
-                    case CommandsList.Add:
-                        commandToExecute = _addCommand;
-                        break;
-                    case CommandsList.Help:
-                        commandToExecute = _helpCommand;
-                        break;
-                    default:
-                        commandToExecute = _defaultCommand;
-                        break;
+                    commandToExecute = createInstance(type) as ICommand;
+                }
+                else
+                {
+                    commandToExecute = _defaultCommand;
                 }
 
                 commandToExecute?.Execute(args);

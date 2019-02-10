@@ -48,6 +48,7 @@
     <Compile Include="Abstract\IPhoneRepository.cs" />
     <Compile Include="Abstract\IPhoneValidator.cs" />
     <Compile Include="Abstract\ISorter.cs" />
+    <Compile Include="Attributes\CommandAttribute.cs" />
     <Compile Include="Commands\AddCommand.cs" />
     <Compile Include="Commands\CommandInvoker.cs" />
     <Compile Include="Commands\DefaultCommand.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Concrete\PhoneValidator.cs" />
     <Compile Include="Consts\Commands.cs" />
     <Compile Include="Entity\Phone.cs" />
+    <Compile Include="Helpers\ReflectionHelper.cs" />
     <Compile Include="Infrastructure\AutofacConfig.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

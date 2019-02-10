@@ -1,10 +1,12 @@
 ﻿using Phonebook.Abstract;
+using Phonebook.Attributes;
 using Phonebook.Entity;
 using System;
 using System.Collections.Generic;
 
 namespace Phonebook.Commands
 {
+    [Command(Name = "add", Format = "add {name} {phone}")]
     public class AddCommand : ICommand
     {
         private readonly IPhoneManager _phoneManager;
