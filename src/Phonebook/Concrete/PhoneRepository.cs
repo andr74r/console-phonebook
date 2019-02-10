@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using Phonebook.Entity;
 using Phonebook.Abstract;
+using Phonebook.Data;
 
 namespace Phonebook.Concrete
 {
     public class PhoneRepository : IPhoneRepository
     {
-        private static readonly List<Phone> _phones = new List<Phone>();
+        private static readonly List<Phone> _phones = InitialData.PhoneList;
 
         public void AddPhone(Phone phone)
         {
