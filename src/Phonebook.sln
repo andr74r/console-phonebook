@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2013 for Windows Desktop
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook", "Phonebook\Phonebook.csproj", "{094A4B20-D740-4B87-8ACA-524253C815D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phonebook.Commands", "Phonebook.Commands\Phonebook.Commands.csproj", "{5C9AD59C-F7E3-4A1A-872C-A69637524368}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phonebook.Data", "Phonebook.Data\Phonebook.Data.csproj", "{4129E339-7D01-498C-945B-CE2BAA8286CF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phonebook.BLL", "Phonebook.BLL\Phonebook.BLL.csproj", "{B64C85EF-72B1-4CD6-B826-A3100C481A9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phonebook.Console", "Phonebook.Console\Phonebook.Console.csproj", "{0EED5751-4DB5-45A8-835C-654EEAAE6B06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +17,27 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{094A4B20-D740-4B87-8ACA-524253C815D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{094A4B20-D740-4B87-8ACA-524253C815D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{094A4B20-D740-4B87-8ACA-524253C815D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{094A4B20-D740-4B87-8ACA-524253C815D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C9AD59C-F7E3-4A1A-872C-A69637524368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C9AD59C-F7E3-4A1A-872C-A69637524368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C9AD59C-F7E3-4A1A-872C-A69637524368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C9AD59C-F7E3-4A1A-872C-A69637524368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4129E339-7D01-498C-945B-CE2BAA8286CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4129E339-7D01-498C-945B-CE2BAA8286CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4129E339-7D01-498C-945B-CE2BAA8286CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4129E339-7D01-498C-945B-CE2BAA8286CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64C85EF-72B1-4CD6-B826-A3100C481A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64C85EF-72B1-4CD6-B826-A3100C481A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64C85EF-72B1-4CD6-B826-A3100C481A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64C85EF-72B1-4CD6-B826-A3100C481A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EED5751-4DB5-45A8-835C-654EEAAE6B06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EED5751-4DB5-45A8-835C-654EEAAE6B06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EED5751-4DB5-45A8-835C-654EEAAE6B06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EED5751-4DB5-45A8-835C-654EEAAE6B06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D89069F9-3F24-4F00-A885-1FDEB0B6D738}
 	EndGlobalSection
 EndGlobal
