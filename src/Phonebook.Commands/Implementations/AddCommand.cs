@@ -10,16 +10,13 @@ namespace Phonebook.Commands.Implementations
     internal class AddCommand : ICommand
     {
         private readonly IPhoneManager _phoneManager;
-        private readonly ISystemNotifier _systemNotifier;
 
-        public AddCommand(IPhoneManager phoneManager,
-            ISystemNotifier systemNotifier)
+        public AddCommand(IPhoneManager phoneManager)
         {
             _phoneManager = phoneManager;
-            _systemNotifier = systemNotifier;
         }
 
-        public void Execute(List<string> args)
+        public string Execute(List<string> args)
         {
             if (IsArgsValid(args))
             {
@@ -29,13 +26,13 @@ namespace Phonebook.Commands.Implementations
                 bool isValid = _phoneManager.AddPhone(phone);
 
                 if (isValid)
-                    _systemNotifier.Notify("Phone was added.");
+                    return "Phone was added.";
                 else
-                    _systemNotifier.Notify("Phone is invalid");
+                    return "Phone is invalid";
             }
             else
             {
-                _systemNotifier.Notify("Command 'add' has the following format: 'add {name} {phone}'");
+                return "Command 'add' has the following format: 'add {name} {phone}'";
             }
         }
 

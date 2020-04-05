@@ -9,18 +9,14 @@ namespace Phonebook.Commands.Implementations
     [Command(Name = "help")]
     internal class HelpCommand : ICommand
     {
-        private readonly ISystemNotifier _systemNotifier;
         private readonly List<CommandExecInfo> _commandExecInfos;
 
-        public HelpCommand(
-            ISystemNotifier systemNotifier,
-            List<CommandExecInfo> commandExecInfos)
+        public HelpCommand(List<CommandExecInfo> commandExecInfos)
         {
             _commandExecInfos = commandExecInfos;
-            _systemNotifier = systemNotifier;
         }
 
-        public void Execute(List<string> args)
+        public string Execute(List<string> args)
         {
             var stringBuilder = new StringBuilder();
 
@@ -31,7 +27,7 @@ namespace Phonebook.Commands.Implementations
                 stringBuilder.AppendLine($"'{info.Name}' {(!string.IsNullOrWhiteSpace(info.Format) ? $"- format: '{info.Format}'" : string.Empty)}");
             }
 
-            _systemNotifier.Notify(stringBuilder.ToString());
+            return stringBuilder.ToString();
         }
     }
 }

@@ -21,7 +21,9 @@ namespace Phonebook.Console
                     System.Console.WriteLine("Enter the command:");
                     var line = System.Console.ReadLine();
 
-                    commandInvoker.Execute(line);
+                    var text = commandInvoker.Execute(line);
+
+                    System.Console.WriteLine(text);
                 }
             }
         }

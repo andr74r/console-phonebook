@@ -1,6 +1,5 @@
 ﻿using Phonebook.Commands.Abstract;
 using Phonebook.Commands.ArgsSplitter;
-using Phonebook.Commands.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +25,7 @@ namespace Phonebook.Commands
             _resolve = resolve;
         }
 
-        public void Execute(string input)
+        public string Execute(string input)
         {
             var args = _argsSplitter.Split(input);
 
@@ -40,8 +39,10 @@ namespace Phonebook.Commands
 
                 var command = _resolve(commandType) as ICommand;
 
-                command.Execute(args);
+                return command.Execute(args);
             }
+
+            return null;
         }
     }
 }

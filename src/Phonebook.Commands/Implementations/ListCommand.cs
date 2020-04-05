@@ -10,17 +10,14 @@ namespace Phonebook.Commands.Implementations
     internal class ListCommand : ICommand
     {
         private readonly IPhoneManager _phoneManager;
-        private readonly ISystemNotifier _systemNotifier;
 
         public ListCommand(
-            IPhoneManager phoneManager,
-            ISystemNotifier systemNotifier)
+            IPhoneManager phoneManager)
         {
             _phoneManager = phoneManager;
-            _systemNotifier = systemNotifier;
         }
 
-        public void Execute(List<string> args)
+        public string Execute(List<string> args)
         {
             var list = _phoneManager.GetPhoneList();
 
@@ -30,7 +27,7 @@ namespace Phonebook.Commands.Implementations
                 stringBuilder.AppendLine($"{elem.OwnerName} : {elem.Number}");
             }
 
-            _systemNotifier.Notify(stringBuilder.ToString());
+            return stringBuilder.ToString();
         }
     }
 }

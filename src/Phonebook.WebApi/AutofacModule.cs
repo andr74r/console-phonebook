@@ -3,19 +3,15 @@ using Phonebook.BLL;
 using Phonebook.Commands;
 using Phonebook.Data;
 
-namespace Phonebook.Console
+namespace Phonebook.WebApi
 {
-    public static class AutofacConfig
+    public class AutofacModule : Module
     {
-        public static IContainer ConfigureContainer()
+        protected override void Load(ContainerBuilder builder)
         {
-            var builder = new ContainerBuilder();
-
             builder.RegisterModule(new DataModule());
             builder.RegisterModule(new BllModule());
             builder.RegisterModule(new CommandModule());
-
-            return builder.Build();
         }
     }
 }

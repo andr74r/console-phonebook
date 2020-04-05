@@ -7,16 +7,9 @@ namespace Phonebook.Commands.Implementations
     [Command(Name = "default", IsDefault = true)]
     internal class DefaultCommand : ICommand
     {
-        private readonly ISystemNotifier _systemNotifier;
-
-        public DefaultCommand(ISystemNotifier systemNotifier)
+        public string Execute(List<string> args)
         {
-            _systemNotifier = systemNotifier;
-        }
-
-        public void Execute(List<string> args)
-        {
-            _systemNotifier.Notify("Unknown command. Enter 'help' to see list of the commands.");
+           return "Unknown command. Enter 'help' to see list of the commands.";
         }
     }
 }
