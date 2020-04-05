@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Phonebook.Commands.Abstract;
+using Phonebook.Commands.ArgsSplitter;
 using Phonebook.Commands.Attributes;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,9 @@ namespace Phonebook.Commands
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<CommandInvoker>();
+
+            builder.RegisterType<DefaultArgsSplitter>()
+                .As<IArgsSplitter>();
 
             builder.Register<Func<Type, object>>((x) =>
             {

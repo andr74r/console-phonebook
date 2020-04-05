@@ -1,4 +1,5 @@
 ﻿using Phonebook.Commands.Abstract;
+using Phonebook.Commands.ArgsSplitter;
 using Phonebook.Commands.Implementations;
 using System;
 using System.Collections.Generic;
@@ -8,21 +9,27 @@ namespace Phonebook.Commands
 {
     public class CommandInvoker
     {
+        private readonly IArgsSplitter _argsSplitter;
+
         private readonly CommandExecInfo _defaultCommand;
         private readonly List<CommandExecInfo> _commandExecInfos;
         private readonly Func<Type, object> _resolve;
 
         public CommandInvoker(
+            IArgsSplitter argsSplitter,
             List<CommandExecInfo> commandExecInfos,
             Func<Type, object> resolve)
         {
+            _argsSplitter = argsSplitter;
             _defaultCommand = commandExecInfos.Single(x => x.IsDefault);
             _commandExecInfos = commandExecInfos;
             _resolve = resolve;
         }
 
-        public void Execute(List<string> args)
+        public void Execute(string input)
         {
+            var args = _argsSplitter.Split(input);
+
             if (args?.Count > 0)
             {
                 var commandName = args[0];

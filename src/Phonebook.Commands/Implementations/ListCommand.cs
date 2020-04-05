@@ -27,7 +27,7 @@ namespace Phonebook.Commands.Implementations
             var stringBuilder = new StringBuilder();
             foreach (var elem in list)
             {
-                stringBuilder.AppendLine($"{elem.OwnerName} : {elem.Number};");
+                stringBuilder.AppendLine($"{elem.OwnerName} : {elem.Number}");
             }
 
             _systemNotifier.Notify(stringBuilder.ToString());
