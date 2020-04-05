@@ -2,7 +2,8 @@
 Simple console phonebook
 
 To run app:
- - start project using VS 2017.
+ - start project using VS 2019.
+ - execute "dotnet restore" command
  
  Supporting commands:
   - add - format 'add {name} {phone}'
@@ -11,5 +12,4 @@ To run app:
 
 To add new command need to do the following:
  - Create implementation of ICommand;
- - Add attribute CommandAttribute to the implementation;
- - Register command using AutofacConfig.
+ - Add attribute CommandAttribute to the implementation.
